@@ -1,0 +1,26 @@
+
+class Employee:
+    def __init__(self, name):
+        self.name = name
+
+    def calculate_salary(self):
+        return 500
+
+
+class Manager(Employee):
+    def calculate_salary(self):
+        return super().calculate_salary() + 200
+
+
+class Developer(Employee):
+    def calculate_salary(self):
+        hours = 10
+        hourly_wage = 20
+        return hours * hourly_wage
+
+
+manager = Manager("John")
+developer = Developer("Alex")
+
+print(manager.name, manager.calculate_salary())
+print(developer.name, developer.calculate_salary())
