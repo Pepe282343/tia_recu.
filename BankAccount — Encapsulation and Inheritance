@@ -1,0 +1,36 @@
+
+class BankAccount:
+    def __init__(self, holder_name, balance):
+        self.holder_name = holder_name
+        self.__balance = balance
+
+    def get_balance(self):
+        return self.__balance
+
+    def deposit(self, amount):
+        if amount > 0:
+            self.__balance += amount
+            print("Holder:", self.holder_name)
+            print("Deposit:", amount)
+            print("New balance:", self.get_balance())
+        else:
+            print("Invalid amount")
+
+
+class SavingsAccount(BankAccount):
+    def deposit_money(self):
+        amount = float(input("Enter savings deposit: "))
+        self.deposit(amount)
+
+
+class BusinessAccount(BankAccount):
+    def deposit_money(self):
+        amount = float(input("Enter business deposit: "))
+        self.deposit(amount)
+
+
+savings = SavingsAccount("John", 1000)
+business = BusinessAccount("Alex", 2000)
+
+savings.deposit_money()
+business.deposit_money()
